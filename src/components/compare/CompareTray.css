@@ -1,0 +1,239 @@
+.compare-tray {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-navy-900);
+  color: var(--text-inverse);
+  border-top: 1px solid var(--border-dark-default);
+  box-shadow: 0 -8px 24px rgba(6, 10, 20, 0.25);
+  animation: compare-tray-slide-up var(--transition-base) var(--ease-out);
+}
+
+@keyframes compare-tray-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.compare-tray__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  padding-inline: var(--container-padding-x);
+  flex-wrap: wrap;
+}
+
+/* ---------------- Head ---------------- */
+
+.compare-tray__head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.compare-tray__title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--text-inverse);
+}
+
+.compare-tray__title svg {
+  color: var(--color-blue-300);
+}
+
+.compare-tray__hint {
+  font-size: 0.6875rem;
+  color: var(--text-inverse-muted);
+}
+
+/* ---------------- Phone chips ---------------- */
+
+.compare-tray__phones {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.compare-tray__phones::-webkit-scrollbar {
+  height: 6px;
+}
+
+.compare-tray__phones::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  border: none;
+}
+
+.compare-tray__phone {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-dark-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: background-color var(--transition-fast);
+}
+
+.compare-tray__phone:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.compare-tray__phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  color: var(--text-inverse);
+  text-align: start;
+}
+
+.compare-tray__phone-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.compare-tray__thumb {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.compare-tray__thumb .phone-image {
+  border-radius: inherit;
+}
+
+.compare-tray__phone-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.15;
+  max-width: 140px;
+}
+
+.compare-tray__phone-brand {
+  font-size: 0.6875rem;
+  color: var(--text-inverse-muted);
+}
+
+.compare-tray__phone-model {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-inverse);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compare-tray__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-inline-end: var(--space-1);
+  border-radius: var(--radius-full);
+  color: var(--text-inverse-muted);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.compare-tray__remove:hover {
+  color: var(--color-error-500);
+  background: rgba(220, 38, 38, 0.15);
+}
+
+.compare-tray__remove:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ---------------- Actions ---------------- */
+
+.compare-tray__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.compare-tray__clear {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-inverse-muted);
+  border-radius: var(--radius-md);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.compare-tray__clear:hover {
+  color: var(--color-error-500);
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.compare-tray__clear:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 768px) {
+  .compare-tray__inner {
+    gap: var(--space-3);
+    padding-block: var(--space-2);
+  }
+
+  .compare-tray__head {
+    display: none;
+  }
+
+  .compare-tray__phone-info {
+    display: none;
+  }
+
+  .compare-tray__thumb {
+    width: 36px;
+    height: 36px;
+  }
+
+  .compare-tray__clear span {
+    display: none;
+  }
+
+  .compare-tray__clear {
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compare-tray {
+    animation: none;
+  }
+}

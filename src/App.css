@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.app__main {
+  flex: 1;
+}
+
+.app__placeholder {
+  padding-block: var(--space-16);
+}

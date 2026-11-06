@@ -1,0 +1,76 @@
+.quiz {
+  padding-block: var(--space-12) var(--space-16);
+  background: var(--bg-page);
+}
+
+.quiz__inner {
+  /* روی .container اثر می‌گذارد و باریک‌ترش می‌کند */
+  max-width: 760px;
+}
+
+.quiz__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+/* حداقل ارتفاع تا وقتی بین گام‌ها جابه‌جا می‌شوی کارت نلرزد */
+.quiz__content {
+  min-height: 320px;
+}
+
+/* -------- Navigation -------- */
+
+.quiz__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.quiz__hint {
+  flex: 1;
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--color-warning-500);
+  line-height: var(--leading-normal);
+}
+
+/* -------- Responsive -------- */
+
+@media (max-width: 640px) {
+  .quiz {
+    padding-block: var(--space-8) var(--space-12);
+  }
+
+  .quiz__card {
+    padding: var(--space-5);
+    border-radius: var(--radius-xl);
+    gap: var(--space-5);
+  }
+
+  .quiz__content {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz__nav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+
+  .quiz__hint {
+    order: -1;
+    text-align: start;
+    padding-inline: var(--space-1);
+  }
+}

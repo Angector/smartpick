@@ -1,0 +1,22 @@
+/**
+ * Vazirmatn Variable Font — @font-face setup.
+ *
+ * فایل فونت مورد انتظار:
+ *   public/fonts/Vazirmatn-Variable.woff2
+ *
+ * این فایل در public/ قرار دارد و به‌صورت لینک در index.html لود می‌شود.
+ * مسیرها عمداً نسبی هستند (`./fonts/...` نسبت به همین فایل) تا در
+ * GitHub Pages با زیرمسیر هم درست resolve شوند (چون base: "./" است).
+ *
+ * در صورت نبود فایل فونت، مرورگر بی‌صدا به fallback سیستمی
+ * (تعریف‌شده در tokens.css → --font-sans) برمی‌گردد و اپ بدون شکستن
+ * رندر می‌شود. `font-display: swap` هم از FOIT جلوگیری می‌کند.
+ */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./fonts/Vazirmatn-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
